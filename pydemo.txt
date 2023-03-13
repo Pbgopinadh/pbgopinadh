@@ -2,6 +2,8 @@ Python :
 
 py is object oreinted , procedural or functional way , Python is an interpreted, object-oriented, high-level programming language with dynamic semantics
 
+py is my fav
+
 
 
 
