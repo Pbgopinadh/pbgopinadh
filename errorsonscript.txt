@@ -1,0 +1,95 @@
+Script Line:
+
+LXIPAG/STRPAGMON /*STARTS SUBSYSTEM*/ 
+MONMSG MSGID(CPF0000)                 
+recieved the below error
+
+CPD1616    Diagnostic              40   10/30/23  00:45:01.319175  PLCLSTM      LXIPAG      *STMT    QSTRUPNEWD  QGPL        013D
+                                     From module . . . . . . . . :   PLCLSTM
+                                     From procedure  . . . . . . :   PLCLSTM
+                                     Statement . . . . . . . . . :   14800
+                                     Message . . . . :   Not authorized to user profile QSYSOPR.
+                                     Cause . . . . . :   You are not authorized to user profile QSYSOPR. Recovery
+                                       . . . :   Get authority from  either the security officer or the user
+                                       profile owner, or change the user profile name (USER parameter). Then try
+                                       the command again.
+
+CPF1338    Diagnostic              40   10/30/23  00:45:01.319521  PLCLSTM      LXIPAG      *STMT    QSTRUPNEWD  QGPL        013D
+                                     From module . . . . . . . . :   PLCLSTM
+                                     From procedure  . . . . . . :   PLCLSTM
+                                     Statement . . . . . . . . . :   14800
+                                     Message . . . . :   Errors occurred on SBMJOB command.
+                                     Cause . . . . . :   See the messages previously listed. Recovery  . . . :
+                                       Correct the errors and then submit the command again.
+
+
+MSE0001    Completion              40   10/30/23  00:45:01.320398  PLCLSTM      LXIPAG      *STMT    QSTRUPNEWD  QGPL        013D
+                                     From module . . . . . . . . :   PLCLSTM
+                                     From procedure  . . . . . . :   PLCLSTM
+                                     Statement . . . . . . . . . :   15800
+                                     Message . . . . :   Program MSRPMON terminated abnormally.
+                                     An abnormal condition was encountered. Please contact your software support
+                                       organization with the following information: Your company name, current
+                                       product, program MSRPMON and message ID MSE0001.
+
+
+Script Line: 
+ LXIPAG/RLSPAGQ PAGQ(*ALL) /*RELEASE PAGER QUEUES*/                            
+recieved the below error
+                                                                        
+CPD1616    Diagnostic              40   10/30/23  00:45:16.907953  PLCLSTQ      LXIPAG      0211     QSTRUPNEWD  QGPL        0145
+                                     Message . . . . :   Not authorized to user profile QSYSOPR.
+                                     Cause . . . . . :   You are not authorized to user profile QSYSOPR. Recovery
+                                       . . . :   Get authority from  either the security officer or the user
+                                       profile owner, or change the user profile name (USER parameter). Then try
+                                       the command again.
+CPF1338    Completion              40   10/30/23  00:45:16.908468  PLCLSTQ      LXIPAG      023C     QSTRUPNEWD  QGPL        0145
+                                     Message . . . . :   Errors occurred on SBMJOB command.
+                                     Cause . . . . . :   See the messages previously listed. Recovery  . . . :
+ 5770SS1 V7R4M0 190621                           Job Log                            BADGDEV   10/30/23  00:45:18 CDT     Page    6
+  Job name . . . . . . . . . . :   QSTRUPJD        User  . . . . . . :   QPGMR        Number . . . . . . . . . . . :   365054
+  Job description  . . . . . . :   QSTRUPJD        Library . . . . . :   QSYS
+MSGID      TYPE                    SEV  DATE      TIME             FROM PGM     LIBRARY     INST     TO PGM      LIBRARY     INST
+                                       Correct the errors and then submit the command again.
+CPF0001    Escape                  30   10/30/23  00:45:16.908805  PLCLSTQ      LXIPAG      0255     QSTRUPNEWD  QGPL        0145
+                                     Message . . . . :   Error found on RLSPAGQ command.
+                                     Cause . . . . . :   The system detected errors in the command. Recovery  . . .
+                                       :   See the previously listed messages in the job log. Correct the errors
+                                       and then try the command again.  *N instead of a command name means that the
+                                       name had not been determined before the error was found.
+
+
+Script line:
+LXIPAG/RLSPAGMON MTR(*MSGQ)
+recieved the below error
+
+CPF0001    Diagnostic              30   10/30/23  00:45:16.990251  PLRPHRM      LXIPAG      0232     QSTRUPNEWD  QGPL        014D
+                                     Message . . . . :   Error found on RLSPAGMON command.
+                                     Cause . . . . . :   The system detected errors in the command. Recovery  . . .
+                                       :   See the previously listed messages in the job log. Correct the errors
+                                       and then try the command again.  *N instead of a command name means that the
+                                       name had not been determined before the error was found.
+CPF1018    Completion              40   10/30/23  00:45:17.180541  JSCLSTM      LXISCH      0124     QSTRUPNEWD  QGPL        0158
+                                     Message . . . . :   No authority to change data area.
+                                     Cause . . . . . :   User does not have the authority to change data area
+                                       JSMSJOB in library LXISCH400. Recovery  . . . :   Get authority from the
+                                       security officer or the object owner. Then try the request again.
+CPF9898    Information             40   10/30/23  00:45:17.466830  QSI430AC     ICHIEFCRP   0024     QSTRUPNEWD  QGPL        015D
+
+script line:
+
+SBMJOB CMD(CALL PGM(UT210C) PARM(5)) JOB(UT210CLX) +
+JOBD(LXISCH400/LX84T) JOBQ(QUSRNOMAX) +             
+CURLIB(LX841USRT) INLLIBL(*JOBD)                    
+
+Recieved the below error and we have verified that user TWLXP841T is not present in the system due to which the subsystem TWLX841T is not starting.
+
+                                     Message . . . . :   User profile TWLXP841T not found.
+                                     Recovery  . . . :   Correct the user profile name or use the Create User
+                                       Profile (CRTUSRPRF) command to create the user profile again. Then try the
+                                       request again.
+CPF1338    Escape                  40   10/30/23  00:45:17.618608  QWTCCSBJ     QSYS        0170     QSTRUPNEWD  QGPL        016D
+                                     Message . . . . :   Errors occurred on SBMJOB command.
+                                     Cause . . . . . :   See the messages previously listed. Recovery  . . . :
+                                       Correct the errors and then submit the command again.
+
